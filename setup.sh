@@ -7,14 +7,17 @@ if [ -z "$email" ]
 ish="sudo apt -y install"
 $ish build-essential
 $ish ubuntu-server
+sudo apt-get -y purge nvidia*
 $ish nvidia-driver-440
 $ish gnome-tweak-tool
 $ish onedrive
 $ish guake
+$ish texlive
 sudo wget https://repo.anaconda.com/archive/Anaconda3-2019.10-Linux-x86_64.sh 
 sudo chmod +x ./Anaconda*
 bash ~/Anaconda3-2019.10-Linux-x86_64.sh -b -p $HOME/anaconda
-source ~/.bashrc 
+source ~/.bashrc
+conda install -y -c hcc cuda-driver 
 sudo apt-get -y remove docker docker-engine docker.io containerd runc
 sudo apt-get -y update
 sudo apt-get -y install \
@@ -50,16 +53,11 @@ ssh-add ~/.ssh/id_rsa
 $ish xclip
 xclip -sel clip < ~/.ssh/id_rsa.pub
 sudo snap install --classic code
-cd /var
-chmod a+w /www
-cd www
-printf "yes"|git clone git@github.com:TimSYQQX/MyWebsite.git
-sudo rm -rf html
-mv MyWebsite html
-cd ~
 sudo apt-get update
 $i virtualbox
 git config --global user.email $email
 git config --global user.name $user
 sudo apt update
 sudo apt -y upgrade
+$alias >> ~/.bashrc
+source ~/.bashrc

@@ -6,6 +6,7 @@ email=""
 
 
 # optional variables
-ssh_port="20171"
+ssh_port="22"
 ssh_password_auth="no"
 passphrase=""
+alias=""
